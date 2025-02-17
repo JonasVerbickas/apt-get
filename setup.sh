@@ -30,7 +30,7 @@ sudo dpkg -i vscode_arm.deb
 # TERMINAL
 sudo apt-get install tmux btop podman -y
 ## better search via arrow keys
-echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >> ~/.inputrc
+echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >>~/.inputrc
 ## oh-my-zsh like config
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 ~/.bash_it/install.sh
@@ -38,5 +38,3 @@ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 # NVM
 # install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-# install Node v20
-nvm i 20
