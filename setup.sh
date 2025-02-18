@@ -65,3 +65,6 @@ if lspci | grep -i nvidia >/dev/null; then
 else
     echo "No NVIDIA GPU detected, skipping NVIDIA container toolkit installation"
 fi
+
+# KEEPASS
+sudo apt-get install keepassxc -y
