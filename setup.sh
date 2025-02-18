@@ -25,9 +25,14 @@ git clone https://github.com/nvim-lua/kickstart.nvim ~/.config/nvim
 
 # VSCODE
 cd ~/Downloads
-# wget -O vscode_x64.deb https://go.microsoft.com/fwlink/?LinkID=760868
-wget -O vscode_arm.deb https://vscode.download.prss.microsoft.com/dbazure/download/stable/e54c774e0add60467559eb0d1e229c6452cf8447/code_1.97.2-1739406006_arm64.deb
-sudo dpkg -i vscode_arm.deb
+ARCH=$(uname -m)
+if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
+    wget -O vscode.deb https://vscode.download.prss.microsoft.com/dbazure/download/stable/e54c774e0add60467559eb0d1e229c6452cf8447/code_1.97.2-1739406006_arm64.deb
+else
+    # otherwise assume x64
+    wget -O vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+fi
+sudo dpkg -i vscode.deb
 
 # TERMINAL
 sudo apt-get install tmux btop -y
