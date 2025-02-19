@@ -2,12 +2,13 @@
 
 sudo apt-get update && sudo apt-get upgrade -y
 
+sudo apt-get install chromium -y
+sudo apt-get install python3-poetry -y
+
+# GIT
 sudo apt-get install git -y
 git config --global user.name "JonasVerbickas" && git config --global user.email "jonasverbic@gmail.com"
-
-sudo apt-get install chromium -y
-
-sudo apt-get install python3-poetry -y
+git config --global core.editor "nvim"
 
 # NEOVIM
 ## install neovim prerequisites
