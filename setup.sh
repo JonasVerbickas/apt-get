@@ -24,6 +24,13 @@ sudo make install
 ## install kickstart
 git clone https://github.com/nvim-lua/kickstart.nvim ~/.config/nvim
 
+# Ensure XKBOPTIONS line is set to caps:escape
+if grep -q '^XKBOPTIONS=' /etc/default/keyboard; then
+  sed -i 's|^XKBOPTIONS=.*|XKBOPTIONS="caps:escape"|' /etc/default/keyboard
+else
+  echo 'XKBOPTIONS="caps:escape"' >> /etc/default/keyboard
+fi
+
 # VSCODE
 cd ~/Downloads
 ARCH=$(uname -m)
