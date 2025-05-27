@@ -26,9 +26,9 @@ git clone https://github.com/nvim-lua/kickstart.nvim ~/.config/nvim
 
 # Ensure XKBOPTIONS line is set to caps:escape
 if grep -q '^XKBOPTIONS=' /etc/default/keyboard; then
-  sed -i 's|^XKBOPTIONS=.*|XKBOPTIONS="caps:escape"|' /etc/default/keyboard
+  sudo sed -i 's|^XKBOPTIONS=.*|XKBOPTIONS="caps:escape"|' /etc/default/keyboard
 else
-  echo 'XKBOPTIONS="caps:escape"' >> /etc/default/keyboard
+  sudo echo 'XKBOPTIONS="caps:escape"' >> /etc/default/keyboard
 fi
 
 # VSCODE
@@ -67,7 +67,7 @@ if lspci | grep -i nvidia >/dev/null; then
     sudo apt-get update
     sudo apt-get install -y nvidia-container-toolkit
     # allow podman to use nvidia devices
-    nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
+    sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
     # test if podman is able to reach nvidia devices
     podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
 else
