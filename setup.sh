@@ -40,6 +40,8 @@ else
     # otherwise assume x64
     wget -O vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
 fi
+## VSCODE will complain if these deps are missing
+sudo apt install libsecret-1-0 libsecret-1-dev
 sudo dpkg -i vscode.deb
 
 # TERMINAL
