@@ -2,9 +2,6 @@
 
 sudo apt-get update && sudo apt-get upgrade -y
 
-sudo apt-get install chromium -y
-sudo apt-get install python3-poetry -y
-
 # GIT
 sudo apt-get install git -y
 git config --global user.name "JonasVerbickas" && git config --global user.email "jonasverbic@gmail.com"
@@ -31,21 +28,8 @@ else
   sudo echo 'XKBOPTIONS="caps:escape"' >> /etc/default/keyboard
 fi
 
-# VSCODE
-cd ~/Downloads
-ARCH=$(uname -m)
-if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
-    wget -O vscode.deb https://vscode.download.prss.microsoft.com/dbazure/download/stable/e54c774e0add60467559eb0d1e229c6452cf8447/code_1.97.2-1739406006_arm64.deb
-else
-    # otherwise assume x64
-    wget -O vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
-fi
-## VSCODE will complain if these deps are missing
-sudo apt install libsecret-1-0 libsecret-1-dev
-DEBIAN_FRONTEND=noninteractive sudo dpkg -i vscode.deb
-
 # TERMINAL
-sudo apt-get install tmux btop -y
+sudo apt-get install tmux btop python3-poetry -y
 ## better search via arrow keys
 echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >>~/.inputrc
 ## oh-my-zsh like config
@@ -76,5 +60,22 @@ else
     echo "No NVIDIA GPU detected, skipping NVIDIA container toolkit installation"
 fi
 
-# KEEPASS
+# GUI apps
 sudo apt-get install keepassxc -y
+
+## VS Code
+cd ~/Downloads
+ARCH=$(uname -m)
+if [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
+    wget -O vscode.deb https://vscode.download.prss.microsoft.com/dbazure/download/stable/e54c774e0add60467559eb0d1e229c6452cf8447/code_1.97.2-1739406006_arm64.deb
+else
+    # otherwise assume x64
+    wget -O vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+fi
+## VS Code will complain if these deps are missing
+sudo apt install libsecret-1-0 libsecret-1-dev
+DEBIAN_FRONTEND=noninteractive sudo dpkg -i vscode.deb
+
+## Google Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+DEBIAN_FRONTEND=noninteractive sudo dpkg -i google-chrome-stable_current_amd64.deb
