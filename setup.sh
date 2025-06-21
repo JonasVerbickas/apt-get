@@ -42,7 +42,7 @@ else
 fi
 ## VSCODE will complain if these deps are missing
 sudo apt install libsecret-1-0 libsecret-1-dev
-sudo dpkg -i vscode.deb
+DEBIAN_FRONTEND=noninteractive sudo dpkg -i vscode.deb
 
 # TERMINAL
 sudo apt-get install tmux btop -y
@@ -50,7 +50,7 @@ sudo apt-get install tmux btop -y
 echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >>~/.inputrc
 ## oh-my-zsh like config
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-~/.bash_it/install.sh
+~/.bash_it/install.sh -s # silent install without users prompts
 
 # NVM
 # install NVM
