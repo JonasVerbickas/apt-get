@@ -1,15 +1,29 @@
-# Ubuntu ARM Setup
+# Ubuntu Setup Scripts
 
-Tested on Ubuntu 24.04 Desktop (ARM).
+Tested on Ubuntu 24.04 Desktop (ARM/x64).
 
+## CLI Setup (Development Tools Only)
 ```bash
-./setup.sh
+./setup-cli.sh
 ```
 
-This script updates the system and installs:
-- Basic Tools: Git, Chromium, Python3-Poetry
-- Neovim: Built from source (with prerequisites) + Kickstart config
-- VSCode: ARM package
-- Terminal Tools: tmux, btop, podman, enhanced history search, and Bash-it
-- Node.js Version Manager
+Installs core development tools:
+- Git (with configuration)
+- Neovim (built from source with Kickstart config)
+- Terminal tools (tmux, btop, enhanced history search, Bash-it)
+- Python3-Poetry
+- Node.js Version Manager (NVM)
+- Podman with NVIDIA support (if GPU detected)
+
+## GUI Setup (Complete Desktop Environment)
+```bash
+./setup-gui.sh
+```
+
+Runs CLI setup plus additional desktop applications:
+- KeePassXC password manager
+- VSCode (architecture-specific download with dependencies)
+- Google Chrome browser
+- Signal messenger
+- Keyboard mapping (CAPS → Escape)
 
