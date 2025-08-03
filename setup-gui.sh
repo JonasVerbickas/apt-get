@@ -11,7 +11,7 @@ else
 fi
 
 # GUI apps
-sudo apt-get install keepassxc -y
+sudo apt-get install keepassxc blender -y
 
 ## VS Code
 cd ~/Downloads
