@@ -22,7 +22,7 @@ sudo make install
 git clone https://github.com/nvim-lua/kickstart.nvim ~/.config/nvim
 
 # TERMINAL
-sudo apt-get install tmux btop python3-poetry -y
+sudo apt-get install tmux btop python3-poetry pipx exiftool -y
 ## better search via arrow keys
 echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >>~/.inputrc
 ## oh-my-zsh like config
