@@ -28,6 +28,9 @@ echo -e '"\e[A": history-search-backward\n"\e[B": history-search-forward' >>~/.i
 ## oh-my-zsh like config
 git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
 ~/.bash_it/install.sh -s # silent install without users prompts
+# pipx global packages
+pipx ensurepath
+pipx install ruff uv
 
 # NVM
 # install NVM
